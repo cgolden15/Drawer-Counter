@@ -75,7 +75,7 @@ Partial Class Form1
         '
         'TextBox2
         '
-        Me.TextBox2.BackColor = System.Drawing.SystemColors.Control
+        Me.TextBox2.BackColor = System.Drawing.SystemColors.ControlDark
         Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox2.Enabled = False
         Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -169,7 +169,7 @@ Partial Class Form1
         '
         'TextBox10
         '
-        Me.TextBox10.BackColor = System.Drawing.SystemColors.Control
+        Me.TextBox10.BackColor = System.Drawing.SystemColors.ControlDark
         Me.TextBox10.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox10.Enabled = False
         Me.TextBox10.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -223,7 +223,7 @@ Partial Class Form1
         '
         'TextBox15
         '
-        Me.TextBox15.BackColor = System.Drawing.SystemColors.Control
+        Me.TextBox15.BackColor = System.Drawing.SystemColors.ControlDark
         Me.TextBox15.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox15.Enabled = False
         Me.TextBox15.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -266,7 +266,7 @@ Partial Class Form1
         '
         'TextBox3
         '
-        Me.TextBox3.BackColor = System.Drawing.SystemColors.Control
+        Me.TextBox3.BackColor = System.Drawing.SystemColors.ControlDark
         Me.TextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox3.Enabled = False
         Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -290,7 +290,7 @@ Partial Class Form1
         '
         'TextBox4
         '
-        Me.TextBox4.BackColor = System.Drawing.SystemColors.Control
+        Me.TextBox4.BackColor = System.Drawing.SystemColors.ControlDark
         Me.TextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox4.Enabled = False
         Me.TextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -304,7 +304,7 @@ Partial Class Form1
         '
         'TextBox1
         '
-        Me.TextBox1.BackColor = System.Drawing.SystemColors.Control
+        Me.TextBox1.BackColor = System.Drawing.SystemColors.ControlDark
         Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox1.Enabled = False
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -355,6 +355,7 @@ Partial Class Form1
         '
         'PictureBox1
         '
+        Me.PictureBox1.BackColor = System.Drawing.SystemColors.ControlDark
         Me.PictureBox1.Location = New System.Drawing.Point(22, 23)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(191, 189)
@@ -363,6 +364,7 @@ Partial Class Form1
         '
         'PictureBox2
         '
+        Me.PictureBox2.BackColor = System.Drawing.SystemColors.ControlDark
         Me.PictureBox2.Location = New System.Drawing.Point(235, 23)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(157, 189)
@@ -399,7 +401,7 @@ Partial Class Form1
         '
         'PictureBox3
         '
-        Me.PictureBox3.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.PictureBox3.BackColor = System.Drawing.SystemColors.ControlDark
         Me.PictureBox3.Location = New System.Drawing.Point(714, 422)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(298, 91)
@@ -415,6 +417,7 @@ Partial Class Form1
         '
         'PictureBox4
         '
+        Me.PictureBox4.BackColor = System.Drawing.SystemColors.ControlDark
         Me.PictureBox4.Location = New System.Drawing.Point(22, 217)
         Me.PictureBox4.Name = "PictureBox4"
         Me.PictureBox4.Size = New System.Drawing.Size(191, 244)
@@ -458,6 +461,7 @@ Partial Class Form1
         '
         'PictureBox5
         '
+        Me.PictureBox5.BackColor = System.Drawing.SystemColors.ControlDark
         Me.PictureBox5.Location = New System.Drawing.Point(696, 23)
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.Size = New System.Drawing.Size(326, 51)
@@ -468,8 +472,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BackgroundImage = Global.Drawer_Counter.My.Resources.Resources.image
+        Me.BackColor = System.Drawing.SystemColors.ControlDark
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1067, 554)
         Me.Controls.Add(Me.bill100)
