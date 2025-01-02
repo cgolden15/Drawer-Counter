@@ -2,25 +2,23 @@
 
 Public Class Form1
 
-    Dim startBank As Integer = 0
+    Dim startBank As String = "0"
     Dim sucess As Boolean
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'coinP.Value = "0"
-        startBank = InputBox("Enter your starting bank: ", "Starting Bank", "0")
 
-        Try
-            sucess = Int32.TryParse(startBank, 0)
-        Catch ex As Exception
-            MsgBox("Please enter a valid number")
+        ' -- Set Starting Bank --
+        While sucess = False
             startBank = InputBox("Enter your starting bank: ", "Starting Bank", "0")
-        End Try
-        If sucess = True Then
-            NumericUpDown1.Value = startBank
-        Else
-            MsgBox("Please enter a valid number")
-            startBank = InputBox("Enter your starting bank: ", "Starting Bank", "0")
-        End If
+
+            If validateInt(startBank, "Start Bank") Then
+                NumericUpDown1.Value = Convert.ToDouble(startBank)
+                sucess = True
+            Else
+                startBank = InputBox("Enter your starting bank: ", "Starting Bank", "0")
+            End If
+        End While
     End Sub
 
     Private Sub Form1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Me.KeyPress
