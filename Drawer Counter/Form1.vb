@@ -1,4 +1,6 @@
-﻿Public Class Form1
+﻿Imports System.Text.RegularExpressions
+
+Public Class Form1
 
     Dim startBank As Integer = 0
     Dim sucess As Boolean
@@ -21,8 +23,18 @@
         End If
     End Sub
 
+    Private Sub Form1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Me.KeyPress
+        If e.KeyChar = Microsoft.VisualBasic.ChrW(Keys.Return) Then
+            Console.WriteLine("key pressed")
+            SendKeys.Send("{TAB}")
+            e.Handled = True
+        End If
+
+    End Sub
+
     ' -- Functions --
 
+    ' add all values together to get deposit total
     Function calcTotal()
         total = pennies + nickles + dimes + quarters + rollPennies + rollNickles + rollDimes + rollQuarters + ones + fives + tens + twenties + fifties + hundreds
         fTotal.Text = total
@@ -35,7 +47,23 @@
         Return total
     End Function
 
-    ' -- I dont feel like categorizing --
+    'validate input is an int
+    Function validateInt(num, slot)
+        Console.WriteLine("validating...")
+        If Regex.IsMatch(num, "^[0-9 ]+$") Then
+            Console.WriteLine("passed")
+            Return True
+        End If
+
+        Console.WriteLine("failed")
+        MessageBox.Show("Please enter a valid number for your " + slot)
+
+        Return False
+    End Function
+
+
+
+    ' -- Define start Bank --
     Private Sub NumericUpDown1_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDown1.ValueChanged
         startBank = NumericUpDown1.Value
         calcTotal()
@@ -50,24 +78,32 @@
     Dim quarters As Decimal = 0
     Dim total As Decimal = 0
 
-    Private Sub coinP_ValueChanged(sender As Object, e As EventArgs) Handles coinP.ValueChanged
-        pennies = coinP.Value * 0.01
-        calcTotal()
+    Private Sub coinP_TextChanged_1(sender As Object, e As EventArgs) Handles coinP.TextChanged
+        If validateInt(coinP.Text, "pennies") Then
+            pennies = Convert.ToDouble(coinP.Text) * 0.01
+            calcTotal()
+        End If
     End Sub
 
-    Private Sub coinN_ValueChanged(sender As Object, e As EventArgs) Handles coinN.ValueChanged
-        nickles = coinN.Value * 0.05
-        calcTotal()
+    Private Sub coinN_TextChanged_1(sender As Object, e As EventArgs) Handles coinN.TextChanged
+        If validateInt(coinN.Text, "Nickles") Then
+            nickles = Convert.ToDouble(coinN.Text) * 0.05
+            calcTotal()
+        End If
     End Sub
 
-    Private Sub coinD_ValueChanged(sender As Object, e As EventArgs) Handles coinD.ValueChanged
-        dimes = coinD.Value * 0.1
-        calcTotal()
+    Private Sub coinD_TextChanged_1(sender As Object, e As EventArgs) Handles coinD.TextChanged
+        If validateInt(coinD.Text, "Dimes") Then
+            dimes = Convert.ToDouble(coinD.Text) * 0.1
+            calcTotal()
+        End If
     End Sub
 
-    Private Sub coinQ_ValueChanged(sender As Object, e As EventArgs) Handles coinQ.ValueChanged
-        quarters = coinQ.Value * 0.25
-        calcTotal()
+    Private Sub coinQ_TextChanged(sender As Object, e As EventArgs) Handles coinQ.TextChanged
+        If validateInt(coinQ.Text, "Quarters") Then
+            quarters = Convert.ToDouble(coinQ.Text) * 0.25
+            calcTotal()
+        End If
     End Sub
 
     ' -- Roll Counters --
@@ -77,22 +113,32 @@
     Dim rollDimes As Decimal = 0
     Dim rollQuarters As Decimal = 0
 
-    Private Sub rollP_ValueChanged(sender As Object, e As EventArgs) Handles rollP.ValueChanged
-        rollPennies = rollP.Value * 0.5
-        calcTotal()
+    Private Sub rollP_TextChanged(sender As Object, e As EventArgs) Handles rollP.TextChanged
+        If validateInt(rollP.Text, "Penny Rolls") Then
+            rollPennies = Convert.ToDouble(rollP.Text) * 0.5
+            calcTotal()
+        End If
     End Sub
 
-    Private Sub rollN_ValueChanged(sender As Object, e As EventArgs) Handles rollN.ValueChanged
-        rollNickles = rollN.Value * 2
-        calcTotal()
+    Private Sub rollN_TextChanged(sender As Object, e As EventArgs) Handles rollN.TextChanged
+        If validateInt(rollN.Text, "Nickel Rolls") Then
+            rollNickles = Convert.ToDouble(rollN.Text) * 2
+            calcTotal()
+        End If
     End Sub
-    Private Sub rollD_ValueChanged(sender As Object, e As EventArgs) Handles rollD.ValueChanged
-        rollDimes = rollD.Value * 5
-        calcTotal()
+
+    Private Sub rollD_TextChanged(sender As Object, e As EventArgs) Handles rollD.TextChanged
+        If validateInt(rollD.Text, "Dime Rolls") Then
+            rollDimes = Convert.ToDouble(rollD.Text) * 5
+            calcTotal()
+        End If
     End Sub
-    Private Sub rollQ_ValueChanged(sender As Object, e As EventArgs) Handles rollQ.ValueChanged
-        rollQuarters = rollQ.Value * 10
-        calcTotal()
+
+    Private Sub rollQ_TextChanged(sender As Object, e As EventArgs) Handles rollQ.TextChanged
+        If validateInt(rollQ.Text, "Quarter Rolls") Then
+            rollQuarters = Convert.ToDouble(rollQ.Text) * 10
+            calcTotal()
+        End If
     End Sub
 
     ' -- Bill Counters --
@@ -104,29 +150,46 @@
     Dim fifties As Decimal = 0
     Dim hundreds As Decimal = 0
 
-    Private Sub bill1_ValueChanged(sender As Object, e As EventArgs) Handles bill1.ValueChanged
-        ones = bill1.Value
-        calcTotal()
+    Private Sub bill1_TextChanged(sender As Object, e As EventArgs)
+        If validateInt(bill1.Text, "Ones") Then
+            ones = Convert.ToDouble(bill1.Text)
+            calcTotal()
+        End If
     End Sub
-    Private Sub bill5_ValueChanged(sender As Object, e As EventArgs) Handles bill5.ValueChanged
-        fives = bill5.Value * 5
-        calcTotal()
+
+    Private Sub bill5_TextChanged(sender As Object, e As EventArgs)
+        If validateInt(bill5.Text, "Fives") Then
+            fives = Convert.ToDouble(bill5.Text) * 5
+            calcTotal()
+        End If
     End Sub
-    Private Sub bill10_ValueChanged(sender As Object, e As EventArgs) Handles bill10.ValueChanged
-        tens = bill10.Value * 10
-        calcTotal()
+
+    Private Sub bill10_TextChanged(sender As Object, e As EventArgs)
+        If validateInt(bill10.Text, "Tens") Then
+            tens = Convert.ToDouble(bill10.Text) * 10
+            calcTotal()
+        End If
     End Sub
-    Private Sub bill20_ValueChanged(sender As Object, e As EventArgs) Handles bill20.ValueChanged
-        twenties = bill20.Value * 20
-        calcTotal()
+
+    Private Sub bill20_TextChanged(sender As Object, e As EventArgs)
+        If validateInt(bill20.Text, "Twenties") Then
+            twenties = Convert.ToDouble(bill20.Text) * 20
+            calcTotal()
+        End If
     End Sub
-    Private Sub bill50_ValueChanged(sender As Object, e As EventArgs) Handles bill50.ValueChanged
-        fifties = bill50.Value * 50
-        calcTotal()
+
+    Private Sub bill50_TextChanged(sender As Object, e As EventArgs)
+        If validateInt(bill50.Text, "Fifties") Then
+            fifties = Convert.ToDouble(bill50.Text) * 50
+            calcTotal()
+        End If
     End Sub
-    Private Sub bill100_ValueChanged(sender As Object, e As EventArgs) Handles bill100.ValueChanged
-        hundreds = bill100.Value * 100
-        calcTotal()
+
+    Private Sub bill100_TextChanged(sender As Object, e As EventArgs)
+        If validateInt(bill100.Text, "Hundreds") Then
+            hundreds = Convert.ToDouble(bill100.Text) * 100
+            calcTotal()
+        End If
     End Sub
 
 End Class
