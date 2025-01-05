@@ -326,7 +326,7 @@ Partial Class Form1
         '
         'bill1
         '
-        Me.bill1.Location = New System.Drawing.Point(67, 256)
+        Me.bill1.Location = New System.Drawing.Point(66, 261)
         Me.bill1.Name = "bill1"
         Me.bill1.Size = New System.Drawing.Size(132, 22)
         Me.bill1.TabIndex = 9
@@ -370,7 +370,7 @@ Partial Class Form1
         '
         'bill20
         '
-        Me.bill20.Location = New System.Drawing.Point(67, 351)
+        Me.bill20.Location = New System.Drawing.Point(66, 354)
         Me.bill20.Name = "bill20"
         Me.bill20.Size = New System.Drawing.Size(132, 22)
         Me.bill20.TabIndex = 12

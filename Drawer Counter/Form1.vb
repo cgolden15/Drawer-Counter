@@ -148,47 +148,46 @@ Public Class Form1
     Dim fifties As Decimal = 0
     Dim hundreds As Decimal = 0
 
-    Private Sub bill1_TextChanged(sender As Object, e As EventArgs)
+    Private Sub bill1_TextChanged_1(sender As Object, e As EventArgs) Handles bill1.TextChanged
         If validateInt(bill1.Text, "Ones") Then
             ones = Convert.ToDouble(bill1.Text)
             calcTotal()
         End If
     End Sub
 
-    Private Sub bill5_TextChanged(sender As Object, e As EventArgs)
+    Private Sub bill5_TextChanged_1(sender As Object, e As EventArgs) Handles bill5.TextChanged
         If validateInt(bill5.Text, "Fives") Then
             fives = Convert.ToDouble(bill5.Text) * 5
             calcTotal()
         End If
     End Sub
 
-    Private Sub bill10_TextChanged(sender As Object, e As EventArgs)
+    Private Sub bill10_TextChanged_1(sender As Object, e As EventArgs) Handles bill10.TextChanged
         If validateInt(bill10.Text, "Tens") Then
             tens = Convert.ToDouble(bill10.Text) * 10
             calcTotal()
         End If
     End Sub
 
-    Private Sub bill20_TextChanged(sender As Object, e As EventArgs)
+    Private Sub bill20_TextChanged_1(sender As Object, e As EventArgs) Handles bill20.TextChanged
         If validateInt(bill20.Text, "Twenties") Then
             twenties = Convert.ToDouble(bill20.Text) * 20
             calcTotal()
         End If
     End Sub
 
-    Private Sub bill50_TextChanged(sender As Object, e As EventArgs)
+    Private Sub bill50_TextChanged_1(sender As Object, e As EventArgs) Handles bill50.TextChanged
         If validateInt(bill50.Text, "Fifties") Then
             fifties = Convert.ToDouble(bill50.Text) * 50
             calcTotal()
         End If
     End Sub
 
-    Private Sub bill100_TextChanged(sender As Object, e As EventArgs)
+    Private Sub bill100_TextChanged_1(sender As Object, e As EventArgs) Handles bill100.TextChanged
         If validateInt(bill100.Text, "Hundreds") Then
             hundreds = Convert.ToDouble(bill100.Text) * 100
             calcTotal()
         End If
     End Sub
-
 
 End Class
